@@ -33,7 +33,7 @@
                                     <img src="<?php echo $emp->emp_image ?>" alt="">
                                 </td>
                                 <td>
-                                    <a href="#" class="btn btn-primary btn-xs">Update</a>
+                                    <a href="<?php echo base_url()?>employee/edit/<?php echo $emp->emp_id?>" class="btn btn-primary btn-xs">Update</a>
                                     <a type="button" class="btn btn-danger btn-xs">Delete</a>
                                 </td>
                             </tr>
