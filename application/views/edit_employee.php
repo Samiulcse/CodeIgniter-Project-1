@@ -24,23 +24,22 @@
         <div class="card-header">
             <h3>Edit Employee</h3>
         </div>
-
-        <?php print_r($employee)?>
-
+        
         <div class="card-body">
             <?php if (count($employee) > 0) {?>
-                <form action="<?php echo base_url('employee/save') ?>" method="post">
+                <form action="<?php echo base_url('employee/update') ?>" method="post">
                     <div class="form-group">
                         <label for="firstName">First Name</label>
-                        <input type="text" class="form-control" value="<?php echo $employee->emp_fname ?>" id="firstName" name="input_val[emp_fname]" placeholder="Enter your first name">
+                        <input type="text" class="form-control" value="<?php echo $employee[0]->emp_fname ?>" id="firstName" name="input_val[emp_fname]" placeholder="Enter your first name">
+                        <input type="hidden" class="form-control" value="<?php echo $employee[0]->emp_id ?>" id="firstName" name="employee_id" placeholder="Enter your first name">
                     </div>
                     <div class="form-group">
                         <label for="lastName">Last Name</label>
-                        <input type="text" class="form-control" id="lastName" name="input_val[emp_lname]" placeholder="Enter your last name">
+                        <input type="text" class="form-control" value="<?php echo $employee[0]->emp_lname ?>" id="lastName" name="input_val[emp_lname]" placeholder="Enter your last name">
                     </div>
                     <div class="form-group">
                         <label for="email">Email address</label>
-                        <input type="email" class="form-control" id="email" name="input_val[emp_email]" placeholder="Enter email">
+                        <input type="email" class="form-control" id="email"  value="<?php echo $employee[0]->emp_email ?>" name="input_val[emp_email]" placeholder="Enter email">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
@@ -48,7 +47,7 @@
                     </div>
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <textarea class="form-control" id="address" name="input_val[emp_address]" rows="3"></textarea>
+                        <textarea class="form-control" id="address" name="input_val[emp_address]" rows="3"><?php echo $employee[0]->emp_address ?></textarea>
                     </div>
                     <input type="submit" class="btn btn-primary" name="btn_save" value="Save"></input>
                 </form>

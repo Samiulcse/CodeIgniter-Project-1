@@ -92,4 +92,29 @@ class Employee extends CI_Controller
         $this->load->view('edit_employee', $data);
         $this->load->view('template/footer');
     }
+
+    public function update()
+    {
+        if ($this->input->post('btn_save')) {
+            // var_dump($this->input->post('input_val'));
+            $employee_id = $this->input->post('employee_id');
+            $input_data = $this->input->post('input_val');
+            $pass= $this->input->post('emp_pass');
+            if($pass !='')
+                $input_data['emp_pass'] = md5($this->input->post('emp_pass'));
+
+            $is_updated = $this->emp_model->update_employee_query($employee_id,$input_data);
+
+            if ($is_updated) {
+                $this->session->set_flashdata("success", "Employee Updated successfully!");
+            } else {
+                $this->session->set_flashdata("error", "Data error!");
+            }
+
+        } else {
+            echo "No request !";
+        }
+
+        redirect(base_url('employee'));
+    }
 }
