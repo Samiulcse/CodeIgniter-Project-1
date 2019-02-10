@@ -1,6 +1,6 @@
 	<div class="container simple-bottom">
 	    <div class="page-header">
-	          <h1>Simple CRUD System <a href="<?php echo base_url()?>employee/add_new_employee" class="btn btn-lg btn-success float-right"> Add New</a></h1>
+	          <h1>Simple CRUD System <a href="<?php echo base_url() ?>employee/add_new_employee" class="btn btn-lg btn-success float-right"> Add New</a></h1>
 	    </div>
 	</div>
 
@@ -22,11 +22,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if(count($employees)>0){?>
-                        <?php foreach($employees as $emp){?>
+                    <?php if (count($employees) > 0) {?>
+                        <?php foreach ($employees as $emp) {?>
                             <tr>
                                 <td><?php echo $emp->emp_id ?></td>
-                                <td><?php echo $emp->emp_fname.' '.$emp->emp_lname?></td>
+                                <td><?php echo $emp->emp_fname . ' ' . $emp->emp_lname ?></td>
                                 <td><?php echo $emp->emp_email ?></td>
                                 <td><?php echo $emp->emp_address ?></td>
                                 <td>
@@ -41,6 +41,7 @@
                     <?php }?>
                 </tbody>
                 </table>
+                <?php echo $pagination ?>
         </div>
     </div>
 </div>
