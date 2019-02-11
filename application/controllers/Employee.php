@@ -19,7 +19,7 @@ class Employee extends CI_Controller
 
             $config['base_url'] = base_url('employee/index/');
             $config['total_rows'] = $this->emp_model->get_count_employee_query();
-            $config['per_page'] = 2;
+            $config['per_page'] = 4;
             $config['uri_segment'] = 3;
             $config['full_tag_open'] = '<ul class="pagination">';
             $config['full_tag_close'] = '</ul>';
@@ -73,6 +73,7 @@ class Employee extends CI_Controller
                 // var_dump($this->input->post('input_val'));
                 $input_data = $this->input->post('input_val');
                 $input_data['emp_pass'] = md5($this->input->post('emp_pass'));
+                $input_data['emp_image'] = 'profile.png';
 
                 $is_inserted = $this->emp_model->new_employee_query($input_data);
 

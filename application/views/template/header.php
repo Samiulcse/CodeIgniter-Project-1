@@ -3,16 +3,16 @@
 <head>
 	<title>Simple Codeigniter CRUD System</title>
 
-	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/style.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 	<style type="text/css">
 		body { padding-top: 80px; }
 	</style>
 
 
 <script src="<?php echo base_url(); ?>assets/js/jquery-3.3.1.slim.min.js"></script>
-<script src="<?php echo base_url();?>assets/js/popper.min.js"></script>
-<script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/popper.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
 
 	<script type="text/javascript">
 		$(function () {
@@ -35,11 +35,26 @@
 		    </ul> -->
 		    <div class="collapse navbar-collapse justify-content-end" id="nav-content">
 		    <ul class="navbar-nav">
-		      <li class="nav-item active">
-		        <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
-		      </li>
+		        <li class="nav-item ">
+            <a class="nav-link <?php if (uri_string() == 'employee') {
+    echo 'active';
+}
+?>" href="<?php echo base_url('employee') ?>">Employee</a>
+          </li>
+                    <li class="nav-item ">
+            <a class="nav-link" href="http://localhost/codeigniter_crud_system_demo/admin/article">Article</a>
+          </li>
+                    <li class="nav-item ">
+            <a class="nav-link" href="http://localhost/codeigniter_crud_system_demo/admin/image">Image</a>
+          </li>
+          <li class="nav-item <?php if (uri_string() == 'profile') {
+    echo 'active';
+}
+?>">
+            <a class="nav-link" href="<?php echo base_url() ?>profile">Profile</a>
+          </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="<?php echo base_url()?>logout">Log Out</a>
+		        <a class="nav-link" href="<?php echo base_url() ?>logout">Log Out</a>
 		      </li>
 		    </ul>
 		    </div>

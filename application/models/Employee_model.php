@@ -24,6 +24,7 @@ class Employee_model extends CI_Model
         $this->db->select('*');
         $this->db->from('employee');
         $this->db->limit($limit, $start);
+        $this->db->order_by('emp_id', 'DESC');
         $query = $this->db->get();
 
         return $result = $query->result();
