@@ -1,0 +1,66 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Standard Meta -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <!-- Site Properties -->
+    <title>Login Form</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.grid.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.css">
+    <style type="text/css">
+        body{
+            background: #2B2626;
+        }
+        .container{
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-5 offset-md-4">
+                <div class="card card-primary">
+                    <div class="card-body">
+                        <h4 class="text-primary text-center">LOGIN FORM</h4>
+                        <hr>
+                                                <form class="form-horizontal" role="form" method="POST" action="http://localhost/codeigniter_crud_system_demo/login/run_login">
+                            <div class="col-md-12">
+                                <div class="form-group has-danger">
+                                    <label class="sr-only" for="email">E-Mail Address</label>
+                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+                                        <input type="text" name="username" class="form-control" id="username"
+                                               placeholder="Username" required autofocus>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="sr-only" for="password">Password</label>
+                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+                                        <input type="password" name="password" class="form-control" id="password"
+                                               placeholder="Password" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <input type="submit" name="btn_login" class="btn btn-lg btn-primary btn-block" value="Sign in">
+                            <!-- <div class="text-center">
+                                <a href="#">Create account</a> or <a href="#">reset password</a>
+                            </div> -->
+                        </form>
+                    </div>
+                </div>
+                </div>
+                </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Codeigniter CRUD System</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/bootstrap-datepicker-1.6.4/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="assets/bootstrap-fileinput-master/css/fileinput.css">
+    <script src="assets/js/jquery-v3.2.1.js"></script>
+    <script src="assets/bootstrap-fileinput-master/js/fileinput.js"></script>
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/ckeditor/ckeditor.js"></script>
+    <script src="assets/bootstrap-datepicker-1.6.4/js/bootstrap-datepicker.js"></script>
+
+  <style type="text/css">
+    body { padding-top: 80px; }
+    .text-brief{
+      white-space: nowrap;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow:ellipsis;
+    }
+    
+    .table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+              input.hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+#profile-image1 {
+    cursor: pointer;
+  
+     width: 100px;
+    height: 100px;
+  border:2px solid #03b1ce ;}
+  .tital{ font-size:16px; font-weight:500;}
+   .bot-border{ border-bottom:1px #f8f8f8 solid;  margin:5px 0  5px 0}  
+  </style>
+  <script type="text/javascript">
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav-content">
+        <a class="navbar-brand" href="#">CODEIGNITER CRUD SYS</a>
+        <!-- <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+        </ul> -->
+        <div class="collapse navbar-collapse justify-content-end" id="nav-content">  
+        <ul class="navbar-nav">
+                    <li class="nav-item ">
+            <a class="nav-link" href="http://localhost/codeigniter_crud_system_demo/admin/employee">Employee</a>
+          </li>
+                    <li class="nav-item active">
+            <a class="nav-link" href="http://localhost/codeigniter_crud_system_demo/admin/article">Article</a>
+          </li>
+                    <li class="nav-item ">
+            <a class="nav-link" href="http://localhost/codeigniter_crud_system_demo/admin/image">Image</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="http://localhost/codeigniter_crud_system_demo/admin/my-profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost/codeigniter_crud_system_demo/admin/logout">Log Out</a>
+          </li>
+        </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+      <div class="container">
+      <div class="page-header">
+            <h1>Simple CRUD System <a href="http://localhost/codeigniter_crud_system_demo/admin/article" class="btn btn-lg btn-success float-right"> View Article</a></h1>
+      </div>
+  </div>
+
+  <div class="container">
+
+            <div class="card card-default">
+      <h3 class="card-header">Edit article</h3>
+      <div class="card-body">
+        <form action="http://localhost/codeigniter_crud_system_demo/admin/upadate-article" method="post">
+          <div class="form-group">
+            <label for="firstName">Article title</label>
+            <input type="text" class="form-control" name="in_val[article_title]" value="ចេញលទ្ធផលប្រលងទី១២ភ្លាម សុគន្ធ និសា ដាក់ពាក្យមួយម៉ាត់ភ្លែត!" placeholder="Enter article title">
+            <input type="hidden" name="article_id" value="1">
+          </div>
+          <div class="form-group">
+            <label for="lastName">Event Data</label>
+            <input type="text" class="form-control" data-provide="datepicker" data-date-format="yyyy-mm-dd" name="in_val[article_event_dt]" value="2017-09-11" placeholder="Enter your last name">
+          </div>
+          <div class="form-group">
+            <label for="articleText">Article text</label>
+            <textarea class="form-control ckeditor" name="in_val[article_text]" id="articleText"><p><strong>ភ្នំពេញ៖</strong>&nbsp;ជាការពិតណាស់ ដែលកាលពីម្សិលមិញនេះ គឺជាថ្ងៃដែលរន្ធត់ និងសប្បាយចិត្ត សម្រាប់ប្អូនៗទី១២ ពីព្រោះជាថ្ងៃដែលប្រកាសលទ្ធផល។</p>
+
+<p>ជាក់ស្តែង គេឃើញមានអ្នកខ្លះរីករាយ និងអ្នកខ្លះទៀតទុក្ខសោក ដោយលទ្ធផលដែលទទួលបានមិនបានដូចចិត្ត។</p>
+
+<p>ក្នុងនោះដែរ តារាចម្រៀងមុខស្រទន់មានមន្តស្នេហ៍ នៃផលិតកម្មរស្មីហង្សមាស កញ្ញា សុគន្ធ និសា បានចូលរួមសម្តែងការត្រេកអរ ក៏ដូចជាលើកទឹកចិត្តចំពោះអ្នកដែលប្រលងធ្លាក់ផងដែរ ដោយសរសេរថា៖</p>
+
+<p><em>&laquo;អបអរសាទរប្អូនៗដែលប្រឡងជាប់បាក់ឌុបទាំងអស់គ្នា&nbsp;</em><em>ហើយប្អូនៗដែលធ្លាក់ក៏កុំអស់សង្ឃឹម ត្រូវតស៊ូដើម្បីជោគជ័យទៅមុខទៀត កុំបាក់ទឹកចិត្ត មិនមែនធ្លាក់ម្តងនេះមានន័យថាជីវិតយើងបរាជ័យទេ តែបើបោះបង់ការតស៊ូព្រោះតែការធ្លាក់នេះទើបពិតជាបរាជ័យមែន&raquo;</em>៕</p>
+
+<p><img src="https://s6.kh1.co/2f/2f3cec3d33626c214432ea8089f3cc4ecad5ac9d.jpg" /></p>
+
+<p><img src="https://s6.kh1.co/e9/e99939a10ba9d713a4017ea6ccf990c9e15c4be9.jpg" /></p>
+
+<p>តារាចម្រៀងស្រី សុគន្ធ និសា</p>
+</textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- FOOTER -->
+    <footer>
+      <p class="float-right"><a href="#">HO PHEARUN</a></p>
+      <p>© 2017</p>
+    </footer>
+
+  </div><!-- /.container -->
+  <script type="text/javascript">
+    $('.datepicker').datepicker({
+        format: 'mm/dd/yyyy',
+        startDate: '-3d'
+    });
+  </script>
+</body>
+</html>
