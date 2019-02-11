@@ -42,7 +42,8 @@ class Profile extends CI_Controller
                     $is_password_updated = $this->profile_model->update_password($user_id, $current_pass, $data);
 
                     if ($is_password_updated) {
-                        $this->session->set_flashdata("success", "User Password Updated!");
+                        $this->session->unset_userdata('user_email');
+                        return redirect(base_url());
                     } else {
                         $this->session->set_flashdata("error", "Error occured");
                     }
@@ -76,6 +77,11 @@ class Profile extends CI_Controller
                     $data = $this->upload->data();
                     $user_id = $this->uri->segment(3);
                     $is_profile_image_updated = $this->profile_model->profile_image_update($data['file_name'], $user_id);
+                    if ($is_profile_image_updated) {
+                        $this->session->set_flashdata("success", "Profile Picture Updated successfully!");
+                    } else {
+                        $this->session->set_flashdata("error", "Data error!");
+                    }
                 }
             }
 

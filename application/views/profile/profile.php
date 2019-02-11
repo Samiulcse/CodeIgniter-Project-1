@@ -63,7 +63,7 @@ if ($profile[0]->user_type == '1') {
                 <label class="col-sm-2 col-form-label">Profile</label>
                 <div class="col-sm-2">
                     <p class="form-control-static">
-                        <img class="img-fluid img-thumbnail" id="profileimg" src="<?php echo base_url() ?>assets/img/profile/profile.png" alt="">
+                        <img class="img-fluid img-thumbnail" id="profileimg" src="<?php echo base_url().'upload/'.$profile[0]->user_profile ?>" alt="">
                     </p>
                     <input type="file" class="form-control-file" name="image_file" id="image_file" accept="image/*" onchange="loadFile(event)">
                     <input type="hidden" id="user_id" name="user_id" value=<?php echo $profile[0]->user_id;?>>

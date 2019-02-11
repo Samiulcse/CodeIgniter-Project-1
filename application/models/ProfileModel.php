@@ -18,8 +18,8 @@ class ProfileModel extends CI_Model
         return $this->db->update('users', $data);
     }
     public function profile_image_update($data, $user_id){
+        $this->db->set('user_profile', $data);
         $this->db->where('user_id', $user_id);
-        $this->db->where('user_pass', $current_pass);
-        return $this->db->update('users', $data);
+        return $this->db->update('users');
     }
 }
