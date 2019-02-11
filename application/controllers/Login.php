@@ -11,9 +11,13 @@ class Login extends CI_Controller
 
     public function index()
     {
-        $this->load->view('auth/header');
-        $this->load->view('auth/login');
-        $this->load->view('auth/footer');
+        if (!isset($this->session->userdata['user_email'])) {
+            $this->load->view('auth/header');
+            $this->load->view('auth/login');
+            $this->load->view('auth/footer');
+        } else {
+            redirect(base_url());
+        }
     }
 
     public function login_validation()
@@ -32,7 +36,7 @@ class Login extends CI_Controller
                 );
                 $this->session->set_userdata($session_data);
 
-                redirect(base_url() . 'login/home');
+                redirect(base_url() . 'employee');
             } else {
                 $this->session->set_flashdata('error', 'Invalid Email or Password');
                 redirect(base_url() . 'login');
@@ -41,5 +45,11 @@ class Login extends CI_Controller
         } else {
             $this->index();
         }
+    }
+
+    public function logout()
+    {
+        $this->session->unset_userdata('user_email');
+        return redirect(base_url());
     }
 }

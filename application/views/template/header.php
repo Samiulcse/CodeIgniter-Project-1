@@ -39,7 +39,7 @@
 		        <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="#">Log Out</a>
+		        <a class="nav-link" href="<?php echo base_url()?>logout">Log Out</a>
 		      </li>
 		    </ul>
 		    </div>
