@@ -13,6 +13,7 @@ class Profile extends CI_Controller
     {
         if (isset($this->session->userdata['user_email'])) {
             $this->load->view('template/header');
+            $this->load->view('common/nav');
 
             $data['profile'] = $this->profile_model->users($this->session->userdata['user_email']);
 

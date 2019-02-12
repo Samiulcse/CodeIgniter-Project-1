@@ -33,6 +33,7 @@ class Login extends CI_Controller
             if ($this->auth_model->can_login($email, $password)) {
                 $session_data = array(
                     'user_email' => $email,
+                    'id' => $this->auth_model->can_login($email, $password)
                 );
                 $this->session->set_userdata($session_data);
 

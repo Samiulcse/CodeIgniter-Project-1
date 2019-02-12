@@ -14,3 +14,9 @@
     font-size: 18px;
     line-height: 35px;
 }
+
+input.article.form-check-input.btn-check-article {
+    position: relative;
+    left: 20px;
+    top: 0;
+}

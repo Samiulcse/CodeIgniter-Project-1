@@ -9,10 +9,13 @@ class LoginModel extends CI_Model
         $this->db->where('user_pass', $password);
 
         $query = $this->db->get('users');
-        if ($query->num_rows() > 0) {
-            return true;
-        } else {
-            return false;
-        }
+
+        $result = $query->result();
+        return $result[0]->user_id;
+        // if ($query->num_rows() > 0) {
+        //     return true;
+        // } else {
+        //     return false;
+        // }
     }
 }

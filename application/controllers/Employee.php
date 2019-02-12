@@ -15,11 +15,12 @@ class Employee extends CI_Controller
         if (isset($this->session->userdata['user_email'])) {
             $this->load->library('pagination');
             $this->load->view('template/header');
+            $this->load->view('common/nav');
             // $data['employees']= $this->emp_model->get_all_employee_query();
 
             $config['base_url'] = base_url('employee/index/');
             $config['total_rows'] = $this->emp_model->get_count_employee_query();
-            $config['per_page'] = 4;
+            $config['per_page'] = 2;
             $config['uri_segment'] = 3;
             $config['full_tag_open'] = '<ul class="pagination">';
             $config['full_tag_close'] = '</ul>';
@@ -58,6 +59,7 @@ class Employee extends CI_Controller
     {
         if (isset($this->session->userdata['user_email'])) {
             $this->load->view('template/header');
+            $this->load->view('common/nav');
             $this->load->view('add_new_employee');
             $this->load->view('template/footer');
         } else {
@@ -98,6 +100,7 @@ class Employee extends CI_Controller
     {
         if (isset($this->session->userdata['user_email'])) {
             $this->load->view('template/header');
+            $this->load->view('common/nav');
 
             if (is_numeric($id)) {
                 $emp_id = $id;

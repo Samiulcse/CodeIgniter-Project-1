@@ -55,3 +55,9 @@ $route['translate_uri_dashes'] = false;
 
 $route['login'] = 'login';
 $route['logout'] = 'login/logout';
+
+// $route['article'] = 'article/article';
+// $route['add_new_article'] = 'article/article/add_new_article';
+$route['article'] = 'article/article';
+$route['article/index/(:num)'] = 'article/article/index/$1';
+$route['article/(:any)'] = 'article/article/$1';
