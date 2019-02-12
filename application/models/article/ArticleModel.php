@@ -47,10 +47,11 @@ class ArticleModel extends CI_Model
         return $this->db->update('article', $input_data);
     }
 
-    public function delete_data($id)
+    public function delete_data($article_id)
     {
-        $this->db->where("article_id", $id);
-        $this->db->delete("article");
-        return true;
+        $SQL = "DELETE FROM article WHERE article_id IN($article_id)";
+        $query = $this->db->query($SQL);
+
+        return $query;
     }
 }

@@ -75,7 +75,7 @@
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <form action="<?php echo base_url('article/delete/') . $article->article_id ?>" method="post">
+          <form action="<?php echo base_url('article/delete/') ?>" method="post">
           <div class="modal-body">
             Do you want to delete this record?
             <input type="hidden" id="hidden_article" name="article_id">
@@ -88,32 +88,12 @@
         </div>
       </div>
     </div>
-    <!-- all selected item delete -->
-    <div class="modal fade" id="allitem" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Conform</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <form action="<?php echo base_url('article/delete/') . $article->article_id ?>" method="post">
-          <div class="modal-body">
-            Do you want to delete those record?
-            <input type="hidden" id="hidden_article" name="article_id">
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Yes</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-          </div>
-          </form>
-        </div>
-      </div>
-    </div>
     <script>
-      $('.btn-delete').on('click', function(){
+      $(document).ready(function () {
+        $('.btn-delete').on('click', function(){
+          var id = $(this).attr('data-id');
         $('#exampleModal').modal('show');
+        $('#hidden_article').val(id);
       });
 
 
@@ -129,7 +109,8 @@
             var id = checkboxValues.join(',');
             console.log(id);
             $('#hidden_article').val(id);
-            $('#allitem').modal('show');
+            $('#exampleModal').modal('show');
+      });
       });
     </script>
  </div>

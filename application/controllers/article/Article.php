@@ -134,18 +134,12 @@ class Article extends CI_Controller
 
     }
 
-    public function delete($id = false)
+    public function delete()
     {
         if (isset($this->session->userdata['user_email'])) {
-            if ($id) {
-                $is_deleted = $this->mdl_article->delete_data($id);
-                $this->message($is_deleted);
-                redirect(base_url('article'));
-            } else {
-                $article_id =$this->input->post('article_id');
-                echo $id;
-                exit;
-            }
+            $is_deleted= $this->mdl_article->delete_data($this->input->post('article_id'));
+            $this->message($is_deleted);
+            redirect(base_url('article'));
         } else {
             redirect(base_url());
         }
