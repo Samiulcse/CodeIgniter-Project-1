@@ -47,14 +47,9 @@ class Profile extends CI_Controller
                     } else {
                         $this->session->set_flashdata("error", "Error occured");
                     }
-                } else {
-                    redirect(base_url() . 'profile');
                 }
 
-            } else {
-                redirect(base_url() . 'profile');
             }
-
             redirect(base_url('profile'));
 
         } else {
@@ -74,6 +69,13 @@ class Profile extends CI_Controller
                 if (!$this->upload->do_upload('image_file')) {
                     echo $this->upload->display_errors();
                 } else {
+
+                    $image = $this->profile_model->users($this->session->userdata['user_email']);
+                    $image_file = 'upload/' . $image[0]->user_profile;
+
+                    if (file_exists($image_file)) {
+                        unlink($image_file);
+                    }
                     $data = $this->upload->data();
                     $user_id = $this->uri->segment(3);
                     $is_profile_image_updated = $this->profile_model->profile_image_update($data['file_name'], $user_id);
@@ -82,9 +84,9 @@ class Profile extends CI_Controller
                     } else {
                         $this->session->set_flashdata("error", "Data error!");
                     }
+
                 }
             }
-
         } else {
             redirect(base_url());
         }

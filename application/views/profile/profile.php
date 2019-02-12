@@ -137,7 +137,7 @@ $(document).ready(function () {
                      processData:false,  
                      success:function(data)  
                      {  
-                          $('#uploaded_image').html(data);  
+                          location . reload();  
                      }  
                 });  
            }  
