@@ -60,4 +60,8 @@ $route['logout'] = 'login/logout';
 // $route['add_new_article'] = 'article/article/add_new_article';
 $route['article'] = 'article/article';
 $route['article/index/(:num)'] = 'article/article/index/$1';
+
+$route['article/edit/(:num)'] = 'article/article/edit/$1';
+$route['article/delete/(:num)'] = 'article/article/delete/$1';
+
 $route['article/(:any)'] = 'article/article/$1';
